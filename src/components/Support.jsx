@@ -1,0 +1,27 @@
+import { useState, useEffect } from "react";
+
+const pageTitle = document.title;
+
+export default () => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    // if(count >0){
+    //   document.title = `${pageTitle}--${count}`;
+    // }
+    count && (document.title = `${pageTitle}--${count}`)
+  })
+  return (
+    <button className="outline" onClick={() => setCount(count + 1)}>
+      {/* {(()=>{
+        if(count == 0) {
+          return "Click to support"
+        } else {
+          return `Supported ${count} times`
+        }
+      })()
+
+      } */}
+      {count === 0 ? "Click to support" : `Supported ternary ${count} times`}
+    </button>
+  )
+}
